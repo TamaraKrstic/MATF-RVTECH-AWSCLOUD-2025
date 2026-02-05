@@ -26,7 +26,13 @@ functions:                          		# Sekcija koja definiše Lambda funkcije
       # olakšava demonstraciju na LocalStack-u, ali nije potrebno za projekat
       - http:                       		# API Gateway HTTP endpoint
           path: sync                		# Putanja: /sync
-          method: get               		# HTTP metoda: GET
+          method: get 
+  getChargersByTown:
+    handler: getChargers.handler
+    events:
+      - http:
+          path: chargers/{town}
+          method: get                    		# HTTP metoda: GET
 
 resources:                          		# CloudFormation resursi sekcija
   Resources:                        		# AWS resursi za kreiranje
